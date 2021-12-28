@@ -1,0 +1,12 @@
+body {
+    font-family: monospace;
+    font-size: large;
+}
+
+li {
+    cursor: pointer;
+}
+
+li.completed {
+    text-decoration: line-through;
+}
