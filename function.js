@@ -6,7 +6,7 @@ if (localStorage.getItem('todoList') === null) {
 }
 let todoList = JSON.parse(localStorage.getItem('todoList'));
 
-printList();
+renderList();
 
 const textField = document.getElementById('new-task-in');
 textField.addEventListener('keypress', function(ev) {
@@ -21,7 +21,7 @@ document.getElementById('clear-btn').addEventListener('click', function() {
     if (confirm("Are you sure you want to clear the list?")) {
         todoList = [];
         localStorage.setItem('todoList', '[]');
-        printList();
+        renderList();
     }
 });
 
@@ -35,11 +35,11 @@ function addToList() {
         todoList.push(new Task(textField.value));
         localStorage.setItem('todoList', JSON.stringify(todoList));
         textField.value = '';
-        printList();
+        renderList();
     }
 }
 
-function printList() {
+function renderList() {
     document.getElementById('todo-list').innerText = '';
     for (let i = 0; i < todoList.length; ++i) {
         const li = document.createElement('li');
@@ -51,7 +51,7 @@ function printList() {
         li.addEventListener('click', function() {
             todoList[this.id].completed = !todoList[this.id].completed;
             localStorage.setItem('todoList', JSON.stringify(todoList));
-            printList();
+            renderList();
         });
         if (todoList[i].completed) {
             li.setAttribute('class', 'completed');
@@ -61,19 +61,24 @@ function printList() {
     }
 }
 
-function allowDrop(ev) {
-    ev.preventDefault();
-}
+let dragId = undefined;
 
 function drag(ev) {
-    ev.dataTransfer.setData('index', ev.target.id);
+    dragId = ev.target.id;
 }
 
 function drop(ev) {
     ev.preventDefault();
-    const swap = todoList[ev.target.id];
-    todoList[ev.target.id] = todoList[ev.dataTransfer.getData('index')];
-    todoList[ev.dataTransfer.getData('index')] = swap;
-    localStorage.setItem('todoList', JSON.stringify(todoList));
-    printList();
+    if (dragId !== undefined && ev.target.id !== undefined) {
+        const swap = todoList[parseInt(ev.target.id)];
+        todoList[ev.target.id] = todoList[dragId];
+        todoList[dragId] = swap;
+        localStorage.setItem('todoList', JSON.stringify(todoList));
+        dragId = undefined;
+        renderList();
+    }
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
 }
