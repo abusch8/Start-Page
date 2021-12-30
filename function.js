@@ -1,5 +1,52 @@
 const userName = 'Alex';
-document.getElementById('header').textContent = 'Good ' + ((new Date().getHours() <= 11) ? 'morning ' : 'evening ') + userName;
+
+updateClock();
+function updateClock() {
+    const date = new Date();
+    document.getElementById('welcome-msg').textContent = 'Good ' + ((date.getHours() <= 11) ? 'morning ' : 'evening ') + userName + '!';
+    let month = undefined;
+    switch (date.getMonth()) {
+        case 0:
+            month = 'January';
+            break;
+        case 1:
+            month = 'Feburary';
+            break;
+        case 2:
+            month = 'March';
+            break;
+        case 3:
+            month = 'April';
+            break;
+        case 4:
+            month = 'May';
+            break;
+        case 5:
+            month = 'June';
+            break;
+        case 6:
+            month = 'July';
+            break;
+        case 7:
+            month = 'August';
+            break;
+        case 8:
+            month = 'September';
+            break;
+        case 9:
+            month = 'October';
+            break;
+        case 10:
+            month = 'November';
+            break;
+        case 11:
+            month = 'December';
+            break;
+    }
+    document.getElementById('date').textContent = month + ' ' + date.getDate() + ((date.getDate() === 1) ? 'st, ' : 'th, ') + date.getFullYear();
+    document.getElementById('time').textContent = date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0') + ':' + String(date.getSeconds()).padStart(2, '0') + ((date.getHours() <= 11) ? ' AM' : ' PM');
+}   
+setInterval(updateClock, 1000);
 
 if (localStorage.getItem('todoList') === null) {
     localStorage.setItem('todoList', '[]');
@@ -70,7 +117,7 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     if (dragId !== undefined && ev.target.id !== undefined) {
-        const swap = todoList[parseInt(ev.target.id)];
+        const swap = todoList[ev.target.id];
         todoList[ev.target.id] = todoList[dragId];
         todoList[dragId] = swap;
         localStorage.setItem('todoList', JSON.stringify(todoList));
