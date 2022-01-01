@@ -8,21 +8,21 @@
         <link rel="stylesheet" href=main.css>
 </head>
 <body>
-    <h1 id='welcome-msg'></h1>
-    <p id='date'></p>
-    <p id='time'></p>
-
-    <p>Bookmarks:</p>
-    <p>Current tasks:</p>
-
-    <ol id='todo-list'></ol>
-
-    <div>
+    <div class="header">
+        <h1 id='welcome-msg'></h1>
+        <p id='time'></p>
+        <p id='date'></p>
+    </div>
+    <div class="bookmarks">
+        <p>Bookmarks:</p>
+    </div>
+    <div class="todo">
+        <p>Current tasks:</p>
+        <ol id='todo-list'></ol>
         <input type="text" id="new-task-in" placeholder="New task">
         <button type="submit" id="add-btn">Add</button>
         <button type="button" id="clear-btn">Clear</button>
     </div>
-
     <script src="function.js"></script>
     <noscript>You need to enable JavaScript to view the full site.</noscript>
 </body>
