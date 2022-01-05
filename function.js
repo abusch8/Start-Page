@@ -25,6 +25,17 @@ textField.addEventListener('keypress', function(ev) {
 
 document.getElementById('add-btn').addEventListener('click', addToList);
 
+document.getElementById('sort-btn').addEventListener('click', function() {
+    todoList.sort((a, b) => {
+        if ((a.completed && b.completed) || (!a.completed && !b.completed)) {
+            return a.str.localeCompare(b.str);
+        }
+        return (a.completed) ? 1 : -1;
+    });
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+    renderList();
+});
+
 document.getElementById('clear-btn').addEventListener('click', function() {
     if (confirm("Are you sure you want to clear the list?")) {
         todoList = [];
