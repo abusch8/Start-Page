@@ -10,7 +10,7 @@ body {
 
 .table-wrap {
     height: 530px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 table {
@@ -26,39 +26,37 @@ th, td {
 
 th {
     font-weight: normal;
+    text-decoration: underline;
 }
 
 .bookmarks {
     float: left;
     width: calc(66.666% - 20px);
-    min-height: 600px;
+    min-height: 650px;
     box-sizing: border-box;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
+    margin: 10px;
+    padding: 10px;
     border: 1px solid blue;
 }
 
 .todo {
     float: right;
     width: calc(33.333% - 20px);
-    height: 600px;
+    height: 650px;
     box-sizing: border-box;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
+    margin: 10px;
+    padding: 10px;
     border: 1px solid blue;
 }
 
-.list-wrap {
-
-    height: 510px;
-    overflow-y: scroll;
+.ol-wrap {
+    height: 550px;
+    overflow-y: auto;
 }
 
 ol {
-    margin-top: 0px;
-    margin-bottom: 5px;
+    margin: 0px;
 }
-
 
 li {
     cursor: pointer;
@@ -67,4 +65,13 @@ li {
 
 li.completed {
     text-decoration: line-through;
+}
+
+.todo-menu {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 74.6%;
 }
