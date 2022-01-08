@@ -8,14 +8,14 @@
         <link rel="stylesheet" href=main.css>
 </head>
 <body>
-    <div class="header">
-        <h1 id='welcome-msg'></h1>
-        <p id='time'></p>
-        <p id='date'></p>
+    <div class="page-header">
+        <h1 id="welcome-msg"></h1>
+        <p id="time"></p>
+        <p id="date"></p>
     </div>
-    <div class="bookmarks">
-        <p>Bookmarks:</p>
-        <div class="table-wrap">
+    <div class="bookmarks-container">
+        <div class="section-header">Bookmarks:</div>
+        <div class="table-wrapper">
             <table>
                 <tr>
                     <th>School</th>
@@ -41,13 +41,13 @@
             </table>
         </div>
     </div>
-    <div class="todo">
-        <p>Current tasks:</p>
-        <div class="ol-wrap">
-            <ol id='todo-list'></ol>
+    <div class="tasks-container">
+        <div class="section-header">Current tasks:</div>
+        <div class="ol-wrapper">
+            <ol id='task-list'></ol>
         </div>
-        <div class="todo-menu">
-            <input type="text" id="new-task-in" placeholder="New task">
+        <div class="tasks-menu-container">
+            <input type="text" id="add-field" placeholder="New task">
             <button type="submit" id="add-btn">Add</button>
             <button type="button" id="sort-btn">Sort</button>
             <button type="button" id="clear-btn">Clear</button>

@@ -3,12 +3,17 @@ body {
     font-size: large;
 }
 
-.header {
+.page-header {
     text-align: center;
     font-size: larger;
 }
 
-.table-wrap {
+.section-header {
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.table-wrapper {
     height: 530px;
     overflow-y: auto;
 }
@@ -20,8 +25,9 @@ table {
     table-layout: fixed;
 }
 
-th, td {
-    padding-top: 5px;
+th, td, li {
+    padding-top: 4.5px;
+    padding-bottom: 4.5px;
 }
 
 th {
@@ -29,29 +35,33 @@ th {
     text-decoration: underline;
 }
 
-.bookmarks {
+.bookmarks-container, .tasks-container {
+    height: 650px;
+}
+
+.bookmarks-container {
     float: left;
     width: calc(66.666% - 20px);
-    min-height: 650px;
     box-sizing: border-box;
     margin: 10px;
     padding: 10px;
-    border: 1px solid blue;
+    border: 1px solid black;
 }
 
-.todo {
+.tasks-container {
     float: right;
     width: calc(33.333% - 20px);
-    height: 650px;
     box-sizing: border-box;
     margin: 10px;
     padding: 10px;
-    border: 1px solid blue;
+    border: 1px solid black;
 }
 
-.ol-wrap {
-    height: 550px;
+.ol-wrapper {
+    height: 540px;
+    min-width: 100%;
     overflow-y: auto;
+    border: 1px solid black;
 }
 
 ol {
@@ -60,18 +70,35 @@ ol {
 
 li {
     cursor: pointer;
-    padding-top: 5px;
+    max-width: fit-content;
 }
 
 li.completed {
     text-decoration: line-through;
 }
 
-.todo-menu {
+.tasks-menu-container {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-input {
-    width: 74.6%;
+.ol-wrapper {
+    max-width: fit-content;
+}
+
+.li-wrapper {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.edit-btn, .delete-btn, .confirm-btn {
+    display: none;
+}
+
+.edit-field {
+    display: none;
+}
+
+button {
+    cursor: pointer;
 }
