@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="page-header">
-        <h1 id="welcome-msg"></h1>
+        <h1 id="welcome_msg"></h1>
         <p id="time"></p>
         <p id="date"></p>
     </div>
@@ -44,13 +44,29 @@
     <div class="tasks-container">
         <div class="section-header">Current tasks:</div>
         <div class="ol-wrapper">
-            <ol id='task-list'></ol>
+            <ol id='task_list'></ol>
         </div>
         <div class="tasks-menu-container">
-            <input type="text" id="add-field" placeholder="New task">
-            <button type="submit" id="add-btn">Add</button>
-            <button type="button" id="sort-btn">Sort</button>
-            <button type="button" id="clear-btn">Clear</button>
+            <input type="text" id="add_field" placeholder="New task">
+            <button type="submit" id="add_btn">Add</button>
+            <button type="button" id="sort_btn">Sort</button>
+            <button type="button" id="clear_btn">Clear</button>
+        </div>
+    </div>
+    <div>
+        <button id="settings_btn">Settings</button>
+    </div>
+    <div id="settings_menu" class="settings-menu">
+        <div class="settings-menu-container">
+            <div class="section-header">
+                Settings
+                <button type='button' id='close_btn' class='close-btn'>Close</button>
+            </div>
+            <div class="settings-container">
+                User Name:
+                <input type="text" id="user_name_field">
+                <button type="submit" id='update_btn'>Update</button>
+            </div>
         </div>
     </div>
     <script src="function.js"></script>
