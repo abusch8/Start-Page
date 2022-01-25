@@ -1,12 +1,12 @@
-if (localStorage.getItem('userName') === null) {
-    localStorage.setItem('userName', JSON.stringify('User'));
+if (localStorage.getItem('username') === null) {
+    localStorage.setItem('username', JSON.stringify('User'));
 }
-const userName = JSON.parse(localStorage.getItem('userName'));
+let username = JSON.parse(localStorage.getItem('username'));
 
 updateClock();
 function updateClock() {
     const date = new Date();
-    document.getElementById('welcome_msg').textContent = 'Good ' + ((date.getHours() <= 11) ? 'morning ' : 'evening ') + userName + '!';
+    document.getElementById('welcome_msg').textContent = 'Good ' + ((date.getHours() <= 11) ? 'morning ' : 'evening ') + username + '!';
     document.getElementById('time').textContent = date.toLocaleTimeString('en-US', {hour12: true});
     document.getElementById('date').textContent = date.toLocaleDateString('en-US', {dateStyle: 'full'});
 }   
@@ -42,7 +42,7 @@ document.getElementById('sort_btn').addEventListener('click', function() {
 });
 
 document.getElementById('clear_btn').addEventListener('click', function() {
-    if (confirm("Are you sure you want to clear the list?")) {
+    if (confirm('Are you sure you want to clear the list?')) {
         editing = false;
         tasks = [];
         localStorage.setItem('tasks', '[]');
@@ -143,7 +143,7 @@ function renderList() {
         confirmButton.innerText = 'Confirm';
         confirmButton.addEventListener('click', modifyList);
         editContainer.appendChild(confirmButton);
-        li.appendChild(editContainer);
+        taskContainer.appendChild(editContainer);
 
         function modifyList() {
             if (editField.value !== '') {
@@ -205,9 +205,10 @@ document.getElementById('close_btn').addEventListener('click', function() {
     settingsMenu.style.visibility = 'hidden';
 });
 
-const userNameField = document.getElementById('user_name_field');
-userNameField.value = userName;
+const usernameField = document.getElementById('user_name_field');
+usernameField.value = username;
 
 document.getElementById('update_btn').addEventListener('click', function() {
-    localStorage.setItem('userName', JSON.stringify(userNameField.value));
+    username = usernameField.value;
+    localStorage.setItem('username', JSON.stringify(usernameField.value));
 });

@@ -87,7 +87,6 @@ ol {
 
 .li-wrapper {
     display: inline-block;
-    padding-right: 5px;
 }
 
 button {
@@ -123,10 +122,18 @@ button {
     float: right;
 }
 
-.edit-task-container {
-    position:absolute;
-}
-
 .btn-popup-container, .edit-task-container {
     display: none;
+}
+
+.btn-popup-container {
+    padding-left: 8px;
+}
+
+.edit-task-container {
+    vertical-align: 9px;
+}
+
+.task-container {
+    max-height: 27px;
 }
